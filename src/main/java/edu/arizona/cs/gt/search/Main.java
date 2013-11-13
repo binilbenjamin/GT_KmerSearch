@@ -6,7 +6,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.NLineInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
@@ -39,7 +39,7 @@ public class Main extends Configured implements Tool {
 
 		// Input
 		FileInputFormat.addInputPath(job, new Path(args[0]));
-		job.setInputFormatClass(KeyValueTextInputFormat.class);
+		job.setInputFormatClass(NLineInputFormat.class);
 
 		// Output
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
